@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Compliance } from "../models/compliance";
 import { ComplianceCartService } from '../services/compliance-cart.service';
+import { ComplianceCart } from '../models/compliance-cart';
 
 @Component({
   selector: 'compliance-card',
@@ -10,7 +11,7 @@ import { ComplianceCartService } from '../services/compliance-cart.service';
 export class ComplianceCardComponent  {
   @Input('compliance') compliance: Compliance;
   @Input('show-actions') showActions = true;
-  @Input('compliance-cart') complianceCart;
+  @Input('compliance-cart') complianceCart: ComplianceCart;
   constructor(private cartService: ComplianceCartService) { }
 
   addToCart() {
@@ -21,7 +22,6 @@ export class ComplianceCardComponent  {
   removeFromCart(){
     this.cartService.removeFromCart(this.compliance);
   }
-
 
   getQuantity() {
     if (!this.complianceCart) return 0;

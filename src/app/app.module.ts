@@ -33,6 +33,7 @@ import { AdminRequestComponent } from './admin/admin-request/admin-request.compo
 import { ComplianceFormComponent } from './admin/compliance-form/compliance-form.component';
 import { ComplianceFilterComponent } from './compliances/compliance-filter/compliance-filter.component';
 import { ComplianceCardComponent } from './compliance-card/compliance-card.component';
+import { ComplianceQuantityComponent } from './compliance-quantity/compliance-quantity.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ComplianceCardComponent } from './compliance-card/compliance-card.compo
     AdminRequestComponent,
     ComplianceFormComponent,
     ComplianceFilterComponent,
-    ComplianceCardComponent
+    ComplianceCardComponent,
+    ComplianceQuantityComponent
 
   ],
 

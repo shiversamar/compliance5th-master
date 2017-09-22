@@ -1,3 +1,36 @@
-<p>
-  compliance-cart works!
-</p>
+<h1>Compliance Cart</h1>
+
+<ng-container *ngIf="cart$ | async as cart">
+    <p>
+      You have {{ cart.totalItemsCount }} items in your Compliance Cart.
+    </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Company Name</th>
+            <th>Compliance List</th>
+            <th>Reference Doc and Rev.</th>
+            <th>Date Validity </th>
+            <th>Quantity </th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cart.items">
+            <td>{{ item.compliance.company }}</td>
+            <td>{{ item.compliance.title }}</td>
+            <td>{{ item.compliance.revision }}</td>
+            <td>{{ item.compliance.datevalidity }}</td>
+            <td>{{ item.quantity }}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+</ng-container>

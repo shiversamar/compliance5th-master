@@ -11,8 +11,8 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/compliance-cart">
           Compliance Cart
-          <span class="badge badge-warning badge-pill">
-            {{ complianceCartItemCount }}
+          <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
+            {{ cart.totalItemsCount }}
           </span>
         </a>
       </li>

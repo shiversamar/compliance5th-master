@@ -3,6 +3,9 @@ import { AuthService } from './../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { AppUser } from "../models/app-user";
 import { ComplianceCartService } from '../services/compliance-cart.service';
+import { Observable } from 'rxjs/Observable';
+import { ComplianceCart } from '../models/compliance-cart';
+
 
 @Component({
   selector: 'navbar',
@@ -11,25 +14,20 @@ import { ComplianceCartService } from '../services/compliance-cart.service';
 })
 
   export class NavbarComponent implements OnInit {
-  complianceCartService: any;
   appUser: AppUser;
-  complianceCartItemCount: number;
-
-    constructor(private auth: AuthService, complianceCartService: ComplianceCartService) {  
+  cart$: Observable<ComplianceCart>
+  
+    constructor(private auth: AuthService, private complianceCartService: ComplianceCartService) {  
     }
  
     async ngOnInit() {
       this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
-
-      let cart$ = await this.complianceCartService.getCart();
-      cart$.subscribe(cart => {
-        this.complianceCartItemCount = 0;
-        for (let complianceId in cart.items)
-        this.complianceCartItemCount += cart.items[complianceId].quantity;
-      });
+      this.cart$ = await this.complianceCartService.getCart();
+      
     }
-   
+ 
     logout() {
       this.auth.logout();
     }
 }
+

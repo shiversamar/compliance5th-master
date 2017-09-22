@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { Compliance } from '../models/compliance';
 import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/map';
 import { ComplianceCart } from '../models/compliance-cart';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ComplianceCartService {
@@ -15,9 +17,10 @@ export class ComplianceCartService {
     });
   }
 
-  async getCart(): Promise<FirebaseObjectObservable<ComplianceCart>> {
+  async getCart(): Promise<Observable<ComplianceCart>> {
     let cartId = await this.getOrCreateCartId();
-    return this.db.object('/compliance-cart/' + cartId);
+    return this.db.object('/compliance-cart/' + cartId)
+     .map(x => new ComplianceCart(x.items));
   }
 
 

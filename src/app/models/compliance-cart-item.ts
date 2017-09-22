@@ -1,7 +1,6 @@
 import { Compliance } from "./compliance";
 
-export interface ComplianceCartItem {
-    compliance: Compliance;
-    quantity: Number;
-
+export class ComplianceCartItem {
+   constructor(public compliance: Compliance, public quantity:number) {}
+  
 }

@@ -6,13 +6,13 @@
             <p class="card-text">{{ compliance.datevalidity | date:'yyyy-MM-dd':true }}</p> 
             <p class="card-text">{{ compliance.desc }}</p>                   
     </div>
-    <div class="card-foooter" *ngIf="showActions" > 
+    <div *ngIf="showActions && complianceCart" class="card-foooter"> 
          <button 
           *ngIf="getQuantity() === 0; else updateQuantity"
           (click)="addToCart()"
           class="btn btn-secondary btn-block">Add to Compliance Cart</button>
          <ng-template #updateQuantity>
-             <div class="row no-gutters">
+             <!-- <div class="row no-gutters">
                  <div class="col-2 text-center">
                      <button 
                         (click)="removeFromCart()"
@@ -28,9 +28,10 @@
                       (click)="addToCart()"
                       class="btn btn-secondary" btn-block>+</button>
                  </div>
+             </div> -->
 
 
-             </div>
+             <compliance-quantity [compliance]="compliance" [compliance-cart]="ComplianceCart"></compliance-quantity>
          </ng-template>      
     </div>
 </div>
