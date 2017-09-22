@@ -24,6 +24,20 @@
             </div>
           </div>
 
+
+          <div class="form-group">
+            <label for="qtylist">Required Compliance</label>
+            <div class="input-group">
+              <span class="input-group-addon">#</span>
+              <input #qtylist="ngModel" [(ngModel)]="compliance.qtylist" name="qtylist" id="qtylist" type="number" class="form-control" required [min]="0"/>
+            </div>
+            <div class="alert alert-danger" *ngIf="qtylist.touched && qtylist.invalid">
+              <div *ngIf="qtylist.errors.required"> Required Compliance qty is required please..</div>
+              <div *ngIf="qtylist.errors.min"> Qty compliance should be 0 or higher.</div>
+            </div>
+          </div>
+
+
           <div class="form-group">
             <label for="datevalidity"> Date Validity</label>
             <div class="input-group">
@@ -35,6 +49,22 @@
               <div *ngIf="datevalidity.errors.minDate"> Minimum Date valid is until 2017-08-31 please..</div>    
             </div>
           </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
           <div class="form-group">
             <label for="desc">Description</label> 

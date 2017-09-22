@@ -2,7 +2,7 @@ export interface Compliance {
     $key: string;
     title: string;
     revision: string;
-    //need to replace number to string with date template
+    qtylist: number;
     desc: string;
     company: string;
     name: string;

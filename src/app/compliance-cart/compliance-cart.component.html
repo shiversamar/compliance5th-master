@@ -12,6 +12,7 @@
             <th>Compliance List</th>
             <th>Reference Doc and Rev.</th>
             <th>Date Validity </th>
+            <th>qtylist </th>
             <th>Quantity </th>
            
           </tr>
@@ -23,13 +24,16 @@
             <td>{{ item.compliance.revision }}</td>
             <td>{{ item.compliance.datevalidity }}</td>
             <td>{{ item.quantity }}</td>
+            <td>{{ item.totalQtylist }}</td>
+           
+  
           </tr>
         </tbody>
         <tfoot>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th></th>
+            <th></th>
+            <th>{{ cart.totalQtylist }}</th>
           </tr>
         </tfoot>
       </table>
