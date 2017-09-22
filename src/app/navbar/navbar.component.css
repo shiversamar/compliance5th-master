@@ -1,0 +1,12 @@
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+#logo {
+    background: url('../../assets/images/checksmile.png') no-repeat;
+    background-size: cover;
+    margin: 12px 10px 12px 32px;
+    width: 80px;
+    height: 35px;
+}
+
