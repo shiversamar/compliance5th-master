@@ -11,22 +11,17 @@ export class ComplianceCart {
         }
     }
 
-
     getQuantity(compliance: Compliance) {
       let item = this.itemsMap[compliance.$key];
       return item ? item.quantity: 0;      
     }
-
 
     get totalQtylist(){
         let sum = 0;
         for (let complianceId in this.items)
             sum += this.items[complianceId].totalQtylist;
         return sum;
-
     }
-
-
 
     get totalItemsCount() {
         let count = 0;

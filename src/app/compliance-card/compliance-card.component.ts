@@ -19,15 +19,15 @@ export class ComplianceCardComponent  {
     this.cartService.addToCart(this.compliance);
   }
 
-  removeFromCart(){
-    this.cartService.removeFromCart(this.compliance);
-  }
+  // removeFromCart(){
+  //   this.cartService.removeFromCart(this.compliance);
+  // }
 
-  getQuantity() {
-    if (!this.complianceCart) return 0;
+  // getQuantity() {
+  //   if (!this.complianceCart) return 0;
 
-    let item = this.complianceCart.items[this.compliance.$key];
-    return item ? item.quantity : 0;
-  }
+  //   let item = this.complianceCart.items[this.compliance.$key];
+  //   return item ? item.quantity : 0;
+  // }
 
 }

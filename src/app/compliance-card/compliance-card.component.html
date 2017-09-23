@@ -1,3 +1,4 @@
+
 <div *ngIf="compliance.title" class="card" >
   <img *ngIf="compliance.imageUrl" class="card-img-top" [src]="compliance.imageUrl" alt="{{ compliance.title }}">
     <div class="card-body">
@@ -7,32 +8,15 @@
             <p class="card-text">{{ compliance.datevalidity | date:'yyyy-MM-dd':true }}</p> 
             <p class="card-text">{{ compliance.desc }}</p>                   
     </div>
+
     <div *ngIf="showActions && complianceCart" class="card-foooter"> 
          <button 
-          *ngIf="getQuantity() === 0; else updateQuantity"
+          *ngIf="complianceCart.getQuantity(compliance) === 0; else updateQuantity"
           (click)="addToCart()"
           class="btn btn-secondary btn-block">Add to Compliance Cart</button>
-         <ng-template #updateQuantity>
-             <!-- <div class="row no-gutters">
-                 <div class="col-2 text-center">
-                     <button 
-                        (click)="removeFromCart()"
-                        class="btn btn-secondary" btn-block>-</button>
-                 </div>
 
-                 <div class="col text-center">
-                     {{ getQuantity() }} in Compliance Cart
-                 </div>
-
-                 <div class="col-2 text-center">
-                    <button 
-                      (click)="addToCart()"
-                      class="btn btn-secondary" btn-block>+</button>
-                 </div>
-             </div> -->
-
-
-             <compliance-quantity [compliance]="compliance" [compliance-cart]="ComplianceCart"></compliance-quantity>
+          <ng-template #updateQuantity>
+             <compliance-quantity [compliance]="compliance" [compliance-cart]="complianceCart"></compliance-quantity>
          </ng-template>      
     </div>
 </div>

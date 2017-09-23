@@ -23,7 +23,11 @@
             <td>{{ item.compliance.title }}</td>
             <td>{{ item.compliance.revision }}</td>
             <td>{{ item.compliance.datevalidity }}</td>
-            <td>{{ item.quantity }}</td>
+            <td>
+              <compliance-quantity [compliance]="item.compliance" [compliance-cart]="cart" >
+              </compliance-quantity>
+
+            </td>
             <td>{{ item.totalQtylist }}</td>
            
   
