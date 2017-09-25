@@ -9,7 +9,7 @@ export class ComplianceCart {
 
         for(let complianceId in itemsMap) {
           let item = itemsMap[complianceId];
-          this.items.push(new ComplianceCartItem({ ...item, $key: complianceId}));
+          this.items.push(new ComplianceCartItem({ ...item, $key: complianceId }));
         }
     }
 

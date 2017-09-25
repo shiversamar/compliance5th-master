@@ -8,32 +8,30 @@
       <table class="table">
         <thead>
           <tr>
+            <th>Compliance Image</th>
             <th>Company Name</th>
             <th>Compliance List</th>
-            <th>Reference Doc and Rev.</th>
+            <th>Revision</th>
             <th>Date Validity </th>
-            <th>Requirement List </th>
-            <th>Balance Quantity </th>
-           
+            <th class="text-center" style="width: 200px" >Requirement List </th>
+            <th class="text right" style="width: 200px">Balance Quantity </th>    
           </tr>
         </thead>
+
         <tbody>
           <tr *ngFor="let item of cart.items">
+            <td>
+              <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail"></div>
+             </td>
             <td>{{ item.company }}</td>
             <td>{{ item.title }}</td>
             <td>{{ item.revision }}</td>
             <td>{{ item.datevalidity }}</td>
-
-          
-
-
-
-            <td>
+            <td class="text-center" style="width: 5px">
               <compliance-quantity [compliance]="item" [compliance-cart]="cart" >
               </compliance-quantity>
-
             </td>
-            <td>{{ item.totalQtylist }}</td>
+            <td class="text-center" style="width: 50px">{{ item.totalQtylist }}</td>
            
   
           </tr>
@@ -42,8 +40,13 @@
           <tr>
             <th></th>
             <th></th>
-            <th>{{ cart.totalQtylist }}</th>
+            <th></th>
+            <th class="text-right" style="width: 300px">{{ cart.totalQtylist }} Total Compliance Requirement</th>
           </tr>
         </tfoot>
       </table>
+      <button 
+      (click)="clearCart()"
+      class="btn btn-danger btn-sm">Clear Compliance Cart</button>
+  
 </ng-container>

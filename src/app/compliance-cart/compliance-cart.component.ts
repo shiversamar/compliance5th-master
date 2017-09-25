@@ -19,4 +19,9 @@ export class ComplianceCartComponent implements OnInit {
     this.cart$ = await this.complianceCartService.getCart();
   }
 
+  clearCart() { 
+    this.complianceCartService.clearCart();
+  }
+
+
 }

@@ -11,33 +11,12 @@ export class ComplianceCartService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  private create() {
-    return this.db.list('/compliance-cart').push({
-      dateCreated: new Date().getTime()
-    });
-  }
-
   async getCart(): Promise<Observable<ComplianceCart>> {
     let cartId = await this.getOrCreateCartId();
     return this.db.object('/compliance-cart/' + cartId)
      .map(x => new ComplianceCart(x.items));
   }
 
-
-  private getItem(cartId:string, complianceId: string){
-    return this.db.object('/compliance-cart/' + cartId + '/items/' + complianceId);
-  }
-
-
-  private async getOrCreateCartId():Promise<string> {
-    let cartId = localStorage.getItem('cartId');
-    if (cartId) return cartId;
-
-    let result = await this.create();
-    localStorage.setItem('cartId', result.key);
-    return result.key;
-    }
-  
   async addToCart(compliance: Compliance) {
     this.updateItem(compliance, 1);
    }
@@ -46,22 +25,51 @@ export class ComplianceCartService {
     this.updateItem(compliance, -1);
    }
 
-   private async updateItem(compliance: Compliance, change:number) {
+   async clearCart() { 
+    let cartId = await this.getOrCreateCartId();
+    this.db.object('/compliance-cart/' + cartId + '/items').remove();
+  }
+
+
+  private create() {
+    return this.db.list('/compliance-cart').push({
+      dateCreated: new Date().getTime()
+    });
+  }
+
+  private getItem(cartId:string, complianceId: string){
+    return this.db.object('/compliance-cart/' + cartId + '/items/' + complianceId);
+  }
+
+
+  private async getOrCreateCartId(): Promise<string> {
+    let cartId = localStorage.getItem('cartId');
+    if (cartId) return cartId;
+
+    let result = await this.create();
+    localStorage.setItem('cartId', result.key);
+    return result.key;
+    }
+  
+
+   private async updateItem(compliance: Compliance, change: number) {
         let cartId = await this.getOrCreateCartId();
         let item$ = this.getItem(cartId, compliance.$key);
         item$.take(1).subscribe(item => {
-          item$.update({  
-            title: compliance.title,
-            revision: compliance.revision,
-            qtylist: compliance.qtylist,
-            company: compliance.company,
-            datevalidity: compliance.datevalidity,
-            imageUrl: compliance.imageUrl,
-            quantity: (item.quantity || 0)  + change 
+            let quantity = (item.quantity || 0) + change;
+            if (quantity === 0) item$.remove();
+            else item$.update({ 
+              title: compliance.title,
+              revision: compliance.revision,
+              qtylist: compliance.qtylist,
+              company: compliance.company,
+              datevalidity: compliance.datevalidity,
+              imageUrl: compliance.imageUrl,
+              quantity: quantity
           });   
         });  
-  }
-}
+       }
+    }
 
 
 // async addToCart(compliance: Compliance) {

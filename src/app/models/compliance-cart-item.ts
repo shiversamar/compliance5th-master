@@ -4,6 +4,7 @@ export class ComplianceCartItem {
     $key: string;
     title: string;
     revision: string;
+    desc: string;
     qtylist: number;
     company: string;
     datevalidity: string;
