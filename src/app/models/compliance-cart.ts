@@ -4,7 +4,7 @@ import { Compliance } from "./compliance";
 export class ComplianceCart {
     items: ComplianceCartItem[] = [];
 
-    constructor(public itemsMap: { [complianceId: string]: ComplianceCartItem }) {
+    constructor(private itemsMap: { [complianceId: string]: ComplianceCartItem }) {
       this.itemsMap = itemsMap || {};
 
         for(let complianceId in itemsMap) {

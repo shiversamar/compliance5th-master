@@ -15,9 +15,7 @@ export class ComplianceCartItem {
         Object.assign(this, init);
     }
 
-   get totalQtylist() { return this.qtylist * this.quantity; }
+   get totalQtylist() { return this.qtylist - this.quantity; }
   
 }
 
-
-// constructor( public compliance: Compliance, public quantity:number) {}
