@@ -12,19 +12,24 @@
             <th>Compliance List</th>
             <th>Reference Doc and Rev.</th>
             <th>Date Validity </th>
-            <th>qtylist </th>
-            <th>Quantity </th>
+            <th>Requirement List </th>
+            <th>Balance Quantity </th>
            
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of cart.items">
-            <td>{{ item.compliance.company }}</td>
-            <td>{{ item.compliance.title }}</td>
-            <td>{{ item.compliance.revision }}</td>
-            <td>{{ item.compliance.datevalidity }}</td>
+            <td>{{ item.company }}</td>
+            <td>{{ item.title }}</td>
+            <td>{{ item.revision }}</td>
+            <td>{{ item.datevalidity }}</td>
+
+          
+
+
+
             <td>
-              <compliance-quantity [compliance]="item.compliance" [compliance-cart]="cart" >
+              <compliance-quantity [compliance]="item" [compliance-cart]="cart" >
               </compliance-quantity>
 
             </td>

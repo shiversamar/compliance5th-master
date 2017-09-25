@@ -39,18 +39,59 @@ export class ComplianceCartService {
     }
   
   async addToCart(compliance: Compliance) {
-    this.updateItemQuantity(compliance, 1);
+    this.updateItem(compliance, 1);
    }
   
    async removeFromCart(compliance: Compliance) {
-    this.updateItemQuantity(compliance, -1);
+    this.updateItem(compliance, -1);
    }
 
-   private async updateItemQuantity(compliance: Compliance, change:number) {
-      let cartId = await this.getOrCreateCartId();
-      let item$ = this.getItem(cartId, compliance.$key);
-      item$.take(1).subscribe(item => {
-        item$.update({ compliance: compliance, quantity: (item.quantity || 0)  + change });   
-      });  
+   private async updateItem(compliance: Compliance, change:number) {
+        let cartId = await this.getOrCreateCartId();
+        let item$ = this.getItem(cartId, compliance.$key);
+        item$.take(1).subscribe(item => {
+          item$.update({  
+            title: compliance.title,
+            revision: compliance.revision,
+            qtylist: compliance.qtylist,
+            company: compliance.company,
+            datevalidity: compliance.datevalidity,
+            imageUrl: compliance.imageUrl,
+            quantity: (item.quantity || 0)  + change 
+          });   
+        });  
   }
 }
+
+
+// async addToCart(compliance: Compliance) {
+//   this.updateItem(compliance, 1);
+//  }
+
+//  async removeFromCart(compliance: Compliance) {
+//   this.updateItem(compliance, -1);
+//  }
+
+//  private async updateItem(compliance: Compliance, change:number) {
+//     let cartId = await this.getOrCreateCartId();
+//     let item$ = this.getItem(cartId, compliance.$key);
+//     item$.take(1).subscribe(item => {
+//       item$.update({  
+//         title: compliance.title,
+//         revision: compliance.revision,
+//         qtylist: compliance.qtylist,
+//         desc: compliance.desc,
+//         company: compliance.company,
+//         name: compliance.name,
+//         datevalidity: compliance.datevalidity,
+//         imageUrl: compliance.imageUrl,
+//         quantity: (item.quantity || 0)  + change 
+//       });   
+//     });  
+
+
+// let cartId = await this.getOrCreateCartId();
+// let item$ = this.getItem(cartId, compliance.$key);
+// item$.take(1).subscribe(item => {
+//   item$.update({ compliance: compliance, quantity: (item.quantity || 0 ) + change});   
+// });  

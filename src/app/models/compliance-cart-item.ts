@@ -1,8 +1,22 @@
 import { Compliance } from "./compliance";
 
 export class ComplianceCartItem {
-   constructor(public compliance: Compliance, public quantity:number) {}
+    $key: string;
+    title: string;
+    revision: string;
+    qtylist: number;
+    company: string;
+    datevalidity: string;
+    imageUrl: string;
+    quantity: number;
+    
+    constructor(init?: Partial<ComplianceCartItem>) {
+        Object.assign(this, init);
+    }
 
-   get totalQtylist() { return this.compliance.qtylist * this.quantity; }
+   get totalQtylist() { return this.qtylist * this.quantity; }
   
 }
+
+
+// constructor( public compliance: Compliance, public quantity:number) {}

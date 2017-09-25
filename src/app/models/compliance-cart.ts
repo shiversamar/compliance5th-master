@@ -5,9 +5,11 @@ export class ComplianceCart {
     items: ComplianceCartItem[] = [];
 
     constructor(public itemsMap: { [complianceId: string]: ComplianceCartItem }) {
+      this.itemsMap = itemsMap || {};
+
         for(let complianceId in itemsMap) {
           let item = itemsMap[complianceId];
-            this.items.push(new ComplianceCartItem(item.compliance, item.quantity));
+          this.items.push(new ComplianceCartItem({ ...item, $key: complianceId}));
         }
     }
 
@@ -31,6 +33,24 @@ export class ComplianceCart {
     }
 }
 
+
+
+
+// this.itemsMap = itemsMap || {};
+        // for(let complianceId in itemsMap) {
+        //   let item = itemsMap[complianceId]; sa loob ng compliance-cart
+        //   let x = new ComplianceCartItem();
+        //   Object.assign(x, item);
+        //   x.$key = complianceId;
+        //   this.items.push(x);
+        // }
+
+        
+
+        // for (let complianceId in itemsMap) {
+        //     let item = itemsMap[complianceId];
+        //     this.items.push(new ComplianceCartItem(item.compliance, item.quantity));
+        // }
 
 
 // get totalItemsCount() {
