@@ -18,6 +18,8 @@ import { AdminAuthGuardService } from './services/auth/admin-auth-guard.service'
 import { CompanyService } from './services/auth/company.service';
 import { ComplianceService } from './services/auth/compliance/compliance.service';
 import { ComplianceCartService } from './services/compliance-cart.service';
+import { RequestService } from './services/auth/request.service';
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -34,6 +36,7 @@ import { ComplianceFormComponent } from './admin/compliance-form/compliance-form
 import { ComplianceFilterComponent } from './compliances/compliance-filter/compliance-filter.component';
 import { ComplianceCardComponent } from './compliance-card/compliance-card.component';
 import { ComplianceQuantityComponent } from './compliance-quantity/compliance-quantity.component';
+
 
 
 @NgModule({
@@ -104,7 +107,8 @@ import { ComplianceQuantityComponent } from './compliance-quantity/compliance-qu
     AdminAuthGuardService,
     CompanyService,
     ComplianceService,
-    ComplianceCartService
+    ComplianceCartService,
+    RequestService
 
   ],
 
