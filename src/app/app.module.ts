@@ -36,6 +36,7 @@ import { ComplianceFormComponent } from './admin/compliance-form/compliance-form
 import { ComplianceFilterComponent } from './compliances/compliance-filter/compliance-filter.component';
 import { ComplianceCardComponent } from './compliance-card/compliance-card.component';
 import { ComplianceQuantityComponent } from './compliance-quantity/compliance-quantity.component';
+import { ComplianceCartSummaryComponent } from './compliance-cart-summary/compliance-cart-summary.component';
 
 
 
@@ -55,7 +56,8 @@ import { ComplianceQuantityComponent } from './compliance-quantity/compliance-qu
     ComplianceFormComponent,
     ComplianceFilterComponent,
     ComplianceCardComponent,
-    ComplianceQuantityComponent
+    ComplianceQuantityComponent,
+    ComplianceCartSummaryComponent
 
   ],
 
