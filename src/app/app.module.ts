@@ -75,7 +75,7 @@ import { ComplianceQuantityComponent } from './compliance-quantity/compliance-qu
       { path: 'login', component: LoginComponent },
 
       { path: 'check-list', component: CheckListComponent, canActivate: [AuthGuardService] },
-      { path: 'submitsuccess', component: SubmitSuccessComponent, canActivate: [AuthGuardService] },
+      { path: 'submit-success/:id', component: SubmitSuccessComponent, canActivate: [AuthGuardService] },
       { path: 'my-request', component: MyRequestComponent, canActivate: [AuthGuardService] },
       {
         path: 'admin/compliance/new',

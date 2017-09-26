@@ -3,6 +3,10 @@ import { ComplianceCartService } from '../services/compliance-cart.service';
 import { ComplianceCart } from '../models/compliance-cart';
 import { Subscription } from 'rxjs/Subscription';
 import { RequestService } from '../services/auth/request.service';
+import { AuthService } from "../services/auth/auth.service";
+import { Request } from '../models/request';
+import { Router } from "@angular/router";
+
 
 
 @Component({
@@ -11,46 +15,35 @@ import { RequestService } from '../services/auth/request.service';
   styleUrls: ['./check-list.component.css']
 })
 export class CheckListComponent implements OnInit, OnDestroy {
-  // [x: string]: any;
-  // sending: any;
-  sending: { };
-
+ 
+  sending = {};
   cart: ComplianceCart;
-  subscription: Subscription;
+  cartSubscription: Subscription;
+  userSubscription: Subscription;
+  userId: string;
+  
 
   constructor(
+    private router: Router,
+    private authService: AuthService,
     private requestService: RequestService,
     private complianceCartService: ComplianceCartService) { }
 
   async ngOnInit() {
     let cart$ = await this.complianceCartService.getCart();
-    this.subscription = cart$.subscribe(cart => this.cart = cart);
+    this.cartSubscription = cart$.subscribe(cart => this.cart = cart);
+    this.userSubscription = this.authService.user$.subscribe(user => this.userId = user.uid);
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe(); 
+    this.cartSubscription.unsubscribe(); 
+    this.userSubscription.unsubscribe(); 
   }
 
-  placeRequest() {
-    let request = {
-      datePlaced: new Date().getTime(),
-      sending: this.sending,
-      items: this.cart.items.map(i => {
-        return {
-          compliance: {
-            title: i.title,
-            revision: i.revision,
-            qtylist: i.qtylist,
-            company: i.company,
-            datevalidity: i.datevalidity,
-            imageUrl: i.imageUrl
-          },
-          quantity: i.quantity,
-          totalQtylist: i.totalQtylist
-        }
-      })
-    };
-    this.requestService.storeRequest(request);
+   async placeRequest() {
+    let request = new Request(this.userId, this.sending, this.cart);
+    let result = await this.requestService.storeRequest(request);
+    this.router.navigate(['/submit-success', result.key])
   }
 }
 
