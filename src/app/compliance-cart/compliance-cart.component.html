@@ -1,11 +1,11 @@
-<h1>Compliance Cart</h1>
+<h1>Compliance Request</h1>
 
 <ng-container *ngIf="cart$ | async as cart">
     <p>
-      You have {{ cart.totalItemsCount }} items in your Compliance Cart.
+      You have {{ cart.totalItemsCount }} items in your Compliance Request.
       <button 
       (click)="clearCart()"
-      class="btn btn-light btn-sm">Clear Compliance Cart</button>
+      class="btn btn-light btn-lg">Clear Compliance Request</button>
     </p>
 
       <table class="table">
@@ -17,7 +17,7 @@
             <th>Revision</th>
             <th>Date Validity </th>
             <th class="text-center" style="width: 200px" >Requirement List </th>
-            <th class="text right" style="width: 200px">Balance Quantity </th>    
+            <th class="text right" style="width: 200px">Balance Requirement </th>    
           </tr>
         </thead>
 
@@ -44,13 +44,13 @@
             <th></th>
             <th></th>
             <th></th>
-            <th class="text-right" style="width: 300px">{{ cart.totalQtylist }} Total Compliance Requirement</th>
+            <th class="text-left" style="width: -0px">{{ cart.totalQtylist }} Total Compliance Requirement</th>
           </tr>
         </tfoot>
       </table>
       <a 
       *ngIf="cart.items.length"
       routerLink="/check-list"
-      class="btn btn-primary">Check Out</a>
+      class="btn btn-primary">Check Request</a>
     
 </ng-container>

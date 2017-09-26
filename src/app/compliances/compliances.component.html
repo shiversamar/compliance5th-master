@@ -3,7 +3,7 @@
       <compliance-filter [company]="company"></compliance-filter>
     </div>
     <div class="col">
-      <h4>List of Compliance</h4>
+      <h2 class="text-center">List of Compliances</h2>
       <div class="row" *ngIf="cart$ | async as cart">
           <ng-container *ngFor="let c of filteredCompliances; let i = index">
              <div class="col">

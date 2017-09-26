@@ -12,7 +12,7 @@
 <div class="card">
   <div class="card-body">
     <h4 class="card-title">Compliance Summary</h4>
-    <p class="card-text">You have {{ cart.totalQtylist }} items in your Compliance Cart.</p>
+    <p class="card-text">You have {{ cart.totalQtylist }} items in your Compliance Request.</p>
     <ul class="list-group list-group-flush">
       <li *ngFor="let item of cart.items" class="list-group-item">
         {{ item.quantity }} - {{ item.title }}
@@ -21,7 +21,7 @@
         </div>
       </li>
       <li class="list-group-item font-weight-bold">
-        Total 
+        Total Balance
         <div class="float-right">
           {{ cart.totalQtylist }}
         </div>

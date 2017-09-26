@@ -1,5 +1,5 @@
 
-<div *ngIf="compliance.title" class="card" >
+<div *ngIf="compliance.title" class="card" style="max-width:20rem;" >
   <img *ngIf="compliance.imageUrl" class="card-img-top" [src]="compliance.imageUrl" alt="{{ compliance.title }}">
     <div class="card-body">
         <h5 class="card-title">{{ compliance.title }}</h5>
@@ -13,15 +13,15 @@
          <button 
           *ngIf="complianceCart.getQuantity(compliance) === 0; else updateQuantity"
           (click)="addToCart()"
-          class="btn btn-secondary btn-block">Add to Compliance Cart</button>
+          class="btn btn-secondary btn-block">Add to Compliance Request</button>
 
           <button class="btn btn-success btn-block">View Detail</button>
-
-
-
 
           <ng-template #updateQuantity>
              <compliance-quantity [compliance]="compliance" [compliance-cart]="complianceCart"></compliance-quantity>
          </ng-template>      
     </div>
 </div>
+
+<!-- 
+<div class="card" style="width: 20rem;"></div> -->

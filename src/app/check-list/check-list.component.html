@@ -1,39 +1,44 @@
 <h2>
-  check-list works!/Sending 
+  Sending Request / Check-list  
 </h2>
 
 <div class="row">
   <div class="col-6">
         <form #f="ngForm">
           <div class="form-group">
-            <label for="">Name</label>
-            <input #name="ngModel" name="name" [(ngModel)]="sending.name" type="text" class="form-control" required/>
-            <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
-              <div *ngIf="name.errors.required">Name is required.</div>
+            <label for="">Email</label>
+            <input #email="ngModel" name="email" [(ngModel)]="sending.email" type="text" class="form-control" placeholder="Email Address" required/>
+            <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+              <div *ngIf="email.errors.required">Email is required the userId .</div>
             </div>
           </div>
+
+          <div class="form-group">
+            <label for="">Contact Person </label>
+            <input #contactperson="ngModel" name="contactperson" [(ngModel)]="sending.contactperson" type="text" class="form-control" placeholder="Contact Person" required/>
+            <div class="alert alert-danger" *ngIf="contactperson.touched && contactperson.invalid">
+              <div *ngIf="contactperson.errors.required">Contact Person is required.</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Company Name</label>
+            <input #companyname="ngModel" name="companyname" [(ngModel)]="sending.companyname" type="text" class="form-control" placeholder="Company Name" required/>
+            <div class="alert alert-danger" *ngIf="companyname.touched && companyname.invalid">
+              <div *ngIf="companyname.errors.required">Company Name is required.</div>
+            </div>
+          </div>
+
+
           <div class="form-group">
             <label for="">Address</label>
-            <input #addressLine1="ngModel" name="addressLine1" [(ngModel)]="sending.addressLine1" type="text" class="form-control" placeholder="Line 1" required/>
-            <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
-              <div *ngIf="addressLine1.errors.required">Address Line 1 is required.</div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for=""></label>
-            <input #addressLine2="ngModel" name="addressLine2" [(ngModel)]="sending.addressLine2" type="text" class="form-control" placeholder="Line 2" required/>
-            <div class="alert alert-danger" *ngIf="addressLine2.touched && addressLine2.invalid">
-              <div *ngIf="addressLine2.errors.required">Address Line 2 is required.</div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="">City</label>
-            <input #city="ngModel" name="city" [(ngModel)]="sending.city" type="text" class="form-control" required/>
+            <input #city="ngModel" name="city" [(ngModel)]="sending.city" type="text" class="form-control" placeholder="Address" required/>
             <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
-              <div *ngIf="city.errors.required">City is required.</div>
+              <div *ngIf="city.errors.required">Address is required.</div>
             </div>
           </div>
           <button 
+            [disabled]="!f.valid"
             (click)="placeRequest()"
             class="btn btn-primary">Place Request</button>
         </form>
@@ -41,10 +46,7 @@
 
 
   <div class="col-6">
-   
     <compliance-cart-summary [cart]="cart"></compliance-cart-summary>
-
-
   </div>  
 
 

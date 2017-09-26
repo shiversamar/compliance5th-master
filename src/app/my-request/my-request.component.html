@@ -1,3 +1,27 @@
 <p>
   my-request works!
 </p>
+<h1>My Request</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Contact Person</th>
+      <th>Company Name</th>
+      <th>Address</th>
+      <th>Date Created </th>
+    </tr>
+  </thead> 
+  <tbody>
+    <tr *ngFor="let request of requests$ | async">
+      <td>{{ request.sending.email }}</td>
+      <td>{{ request.sending.contactperson }}</td>
+      <td>{{ request.sending.companyname }}</td>
+      <td>{{ request.sending.city }}</td>
+      <td>{{ request.datePlaced | date}}</td>
+      <td>
+        <a href="#">View</a>
+      </td>
+    </tr>
+  </tbody> 
+</table>
