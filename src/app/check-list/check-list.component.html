@@ -40,7 +40,13 @@
           <button 
             [disabled]="!f.valid"
             (click)="placeRequest()"
-            class="btn btn-primary">Place Request</button>
+            class="btn btn-primary">Send Request</button>
+
+            <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
+              Back
+          </a>
+
+
         </form>
   </div>
 

@@ -37,6 +37,7 @@ import { ComplianceFilterComponent } from './compliances/compliance-filter/compl
 import { ComplianceCardComponent } from './compliance-card/compliance-card.component';
 import { ComplianceQuantityComponent } from './compliance-quantity/compliance-quantity.component';
 import { ComplianceCartSummaryComponent } from './compliance-cart-summary/compliance-cart-summary.component';
+import { ComplianceDetailsComponent } from './compliance-details/compliance-details.component';
 
 
 
@@ -57,7 +58,8 @@ import { ComplianceCartSummaryComponent } from './compliance-cart-summary/compli
     ComplianceFilterComponent,
     ComplianceCardComponent,
     ComplianceQuantityComponent,
-    ComplianceCartSummaryComponent
+    ComplianceCartSummaryComponent,
+    ComplianceDetailsComponent
 
   ],
 
@@ -74,6 +76,7 @@ import { ComplianceCartSummaryComponent } from './compliance-cart-summary/compli
       { path: '', component: CompliancesComponent },
       { path: 'compliances', component: CompliancesComponent },
       { path: 'compliance-cart', component: ComplianceCartComponent },
+      { path: 'compliance-details', component: ComplianceDetailsComponent },
       { path: 'login', component: LoginComponent },
 
       { path: 'check-list', component: CheckListComponent, canActivate: [AuthGuardService] },

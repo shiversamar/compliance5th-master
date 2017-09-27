@@ -1,0 +1,40 @@
+<p>
+  compliance-details works!
+</p>
+
+        <div class="panel panel-primary">
+    
+          <div class="panel-heading">
+              <h2>Compliance Details</h2>
+          </div>
+      
+          <div *ngIf="compliances | async as compliance"  class="panel-body">
+             
+              <div class="row">
+                  <div class="col-md-2">Title </div>
+                  <div class="col-md-10">{{ compliance.title }}</div>
+              </div>
+              <div class="row">
+                  <div class="col-md-2">Revison  </div>
+                  <div class="col-md-10">{{ compliance.qtylist}}</div>
+              </div>
+              <div class="row">
+                  <div class="col-md-2">Date Validity: </div>
+                  <div class="col-md-10">{{ compliance.datevalidity | date}}</div>
+              </div>
+              <div class="row">
+                  <div class="col-md-2">Description </div>
+                  <div class="col-md-10">{{ compliance.desc}}</div>
+              </div>
+
+          </div>
+      
+          <div class="panel-footer">
+              <!-- <a class="btn btn-default" (click)="onBack()" style="width:80px">
+                  <i class="glyphicon glyphicon-chevron-left"></i> Back
+              </a> -->
+              <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
+                  Back
+              </a>
+          </div>
+      </div>

@@ -71,7 +71,9 @@
             <ng-template #dataTableCell let-item="item">
                 <a [routerLink]="['/admin/compliance/', item.$key]">Edit</a>
                 
-
+                <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
+                    Back
+                </a>
             </ng-template>
         </data-table-column>
         

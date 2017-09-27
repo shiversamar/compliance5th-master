@@ -15,11 +15,14 @@
           (click)="addToCart()"
           class="btn btn-secondary btn-block">Add to Compliance Request</button>
 
-          <button class="btn btn-success btn-block">View Detail</button>
+          <button 
+          [routerLink]="['/compliance-details']"
+          class="btn btn-success btn-block">View Detail</button>
 
           <ng-template #updateQuantity>
              <compliance-quantity [compliance]="compliance" [compliance-cart]="complianceCart"></compliance-quantity>
-         </ng-template>      
+         </ng-template>    
+         
     </div>
 </div>
 

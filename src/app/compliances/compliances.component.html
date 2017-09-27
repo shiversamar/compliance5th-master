@@ -3,13 +3,13 @@
       <compliance-filter [company]="company"></compliance-filter>
     </div>
     <div class="col">
-      <h2 class="text-center">List of Compliances</h2>
+      <h5 class="text-center">LIST OF COMPLIANCES</h5>
       <div class="row" *ngIf="cart$ | async as cart">
           <ng-container *ngFor="let c of filteredCompliances; let i = index">
              <div class="col">
               <compliance-card [compliance]="c" [compliance-cart]="cart"></compliance-card>
              </div>
-            <div *ngIf="(i + 2) % 7 === 0" class="w-100"></div>
+            <div *ngIf="(i + 1) % 2 === 0" class="w-150"></div>
           </ng-container>    
         </div>
     </div>
