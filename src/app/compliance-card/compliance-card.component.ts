@@ -12,6 +12,7 @@ export class ComplianceCardComponent  {
   @Input('compliance') compliance: Compliance;
   @Input('show-actions') showActions = true;
   @Input('compliance-cart') complianceCart: ComplianceCart;
+  
   constructor(private cartService: ComplianceCartService) { }
 
   addToCart() {

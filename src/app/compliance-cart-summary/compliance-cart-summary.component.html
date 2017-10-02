@@ -1,30 +1,19 @@
-<p>
-  compliance-cart-summary works!
-</p>
-<!-- <div class="card">
-  <div class="card-body">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div> -->
-
 <div class="card">
   <div class="card-body">
     <h4 class="card-title">Compliance Summary</h4>
-    <p class="card-text">You have {{ cart.totalQtylist }} items in your Compliance Request.</p>
+    <p class="card-text">You have {{ cart.totalItemsCount }} items in your Compliance Request.</p>
     <ul class="list-group list-group-flush">
       <li *ngFor="let item of cart.items" class="list-group-item">
-        {{ item.quantity }} - {{ item.title }}
-        <div class="float-right">
-          {{ item.totalQtylist  }}
-        </div>
+          {{ item.quantity }} - {{ item.title }}
+          <div class="float-right">
+            {{ item.totalQtylist  }}
+          </div>
       </li>
       <li class="list-group-item font-weight-bold">
-        Total Balance
-        <div class="float-right">
-          {{ cart.totalQtylist }}
-        </div>
+          Total Balance
+          <div class="float-right">
+            {{ cart.totalQtylist }}
+          </div>
       </li>
     </ul>
   </div>

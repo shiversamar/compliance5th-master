@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
-import { DataTableModule } from 'angular-4-data-table';
+import { DataTableModule } from 'angular-4-data-table/src/index';
 
 // Services 
 import { AuthService } from './services/auth/auth.service';
@@ -38,6 +38,8 @@ import { ComplianceCardComponent } from './compliance-card/compliance-card.compo
 import { ComplianceQuantityComponent } from './compliance-quantity/compliance-quantity.component';
 import { ComplianceCartSummaryComponent } from './compliance-cart-summary/compliance-cart-summary.component';
 import { ComplianceDetailsComponent } from './compliance-details/compliance-details.component';
+import { SendingFormComponent } from './sending-form/sending-form.component';
+import { UploadComplianceComponent } from './upload-compliance/upload-compliance.component';
 
 
 
@@ -59,7 +61,9 @@ import { ComplianceDetailsComponent } from './compliance-details/compliance-deta
     ComplianceCardComponent,
     ComplianceQuantityComponent,
     ComplianceCartSummaryComponent,
-    ComplianceDetailsComponent
+    ComplianceDetailsComponent,
+    SendingFormComponent,
+    UploadComplianceComponent
 
   ],
 
@@ -73,13 +77,19 @@ import { ComplianceDetailsComponent } from './compliance-details/compliance-deta
     AngularFireDatabaseModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
+      { path: 'home', component: HomeComponent },
       { path: '', component: CompliancesComponent },
-      { path: 'compliances', component: CompliancesComponent },
+      { path: 'compliances/:id', component: CompliancesComponent },
       { path: 'compliance-cart', component: ComplianceCartComponent },
       { path: 'compliance-details', component: ComplianceDetailsComponent },
       { path: 'login', component: LoginComponent },
 
       { path: 'check-list', component: CheckListComponent, canActivate: [AuthGuardService] },
+
+      { path: 'upload-compliance', component: UploadComplianceComponent, canActivate: [AuthGuardService] },
+      // { path: 'upload-compliance/:id', component: UploadComplianceComponent, canActivate: [AuthGuardService] },
+
+
       { path: 'submit-success/:id', component: SubmitSuccessComponent, canActivate: [AuthGuardService] },
       { path: 'my-request', component: MyRequestComponent, canActivate: [AuthGuardService] },
       {

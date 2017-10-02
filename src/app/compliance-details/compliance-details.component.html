@@ -2,39 +2,96 @@
   compliance-details works!
 </p>
 
-        <div class="panel panel-primary">
-    
-          <div class="panel-heading">
-              <h2>Compliance Details</h2>
-          </div>
-      
-          <div *ngIf="compliances | async as compliance"  class="panel-body">
-             
-              <div class="row">
-                  <div class="col-md-2">Title </div>
-                  <div class="col-md-10">{{ compliance.title }}</div>
-              </div>
-              <div class="row">
-                  <div class="col-md-2">Revison  </div>
-                  <div class="col-md-10">{{ compliance.qtylist}}</div>
-              </div>
-              <div class="row">
-                  <div class="col-md-2">Date Validity: </div>
-                  <div class="col-md-10">{{ compliance.datevalidity | date}}</div>
-              </div>
-              <div class="row">
-                  <div class="col-md-2">Description </div>
-                  <div class="col-md-10">{{ compliance.desc}}</div>
-              </div>
+<p>
+    <input 
+    #query 
+    (keyup)="filter(query.value)"
+    type="text" class="form-control" placeholder="Search...">
+</p>
 
-          </div>
-      
-          <div class="panel-footer">
-              <!-- <a class="btn btn-default" (click)="onBack()" style="width:80px">
-                  <i class="glyphicon glyphicon-chevron-left"></i> Back
-              </a> -->
-              <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
-                  Back
-              </a>
-          </div>
-      </div>
+<div style="margin: auto; max-width: 1000px; margin-bottom: 50px;">
+    <data-table id="persons-grid"
+        headerTitle="Compliance List"
+        [items]="items"
+        [itemCount]="itemCount"
+        (reload)="reloadItems($event)"
+
+        (rowClick)="rowClick($event)"
+        (rowDoubleClick)="rowDoubleClick($event)"
+        [rowTooltip]="rowTooltip"
+        >
+        <data-table-column
+            [property]="'company'"
+            [header]="'Company'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+
+        <data-table-column
+            [property]="'title'"
+            [header]="'Title'"
+            [sortable]="true"
+            [resizable]="true">
+         </data-table-column>
+
+        <data-table-column
+            [property]="'revision'"
+            [header]="'Revision'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+
+
+         <data-table-column
+            [property]="'datevalidity'"
+            [header]="'Date Validity'"
+            [sortable]="true">
+            <ng-template #dataTableCell let-item="item">
+                <span>{{ item.datevalidity | date:'yyyy-MM-dd'}}</span>
+            </ng-template>
+        </data-table-column>
+
+        <data-table-column
+        [property]="'qtylist'"
+        [header]="'Qty Required List'"
+        [sortable]="true"
+        [resizable]="true">
+         </data-table-column>
+
+        <data-table-column
+            [property]="'desc'"
+            [header]="'Description'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+
+
+        <data-table-column
+            [property]="'$key'">
+            <ng-template #dataTableCell let-item="item">
+                <a [routerLink]="['/admin/compliance/', item.$key]">View</a>
+                
+                <!-- <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
+                    Back
+                </a> -->
+            </ng-template>
+        </data-table-column>
+        
+        
+        <!-- <data-table-column
+            [property]="'active'"
+            [header]="'Active'"
+            [width]="50"
+            [resizable]="true">
+            <ng-template #dataTableHeader let-item="item">
+                <span style="color: rgb(232, 0, 0)">Active</span>
+            </ng-template>
+            <ng-template #dataTableCell let-item="item">
+                <span style="color: grey">
+                <span class="glyphicon glyphicon-ok" *ngIf="item.active"></span>
+                <span class="glyphicon glyphicon-remove" *ngIf="!item.active"></span>
+                </span>
+            </ng-template>
+        </data-table-column>  -->
+    </data-table>
+</div>

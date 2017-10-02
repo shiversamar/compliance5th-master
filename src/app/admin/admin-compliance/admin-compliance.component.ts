@@ -56,6 +56,17 @@ export class AdminComplianceComponent implements OnInit, OnDestroy {
 
   }
 
+  // special properties:
+      rowClick(rowEvent) {
+          console.log('Clicked: ' + rowEvent.row.item.company);
+      }
+  
+      rowDoubleClick(rowEvent) {
+          alert('Double clicked: ' + rowEvent.row.item.company);
+      }
+  
+      rowTooltip(item) { return item.jobTitle; }
+
   ngOnInit() {
   }
 

@@ -83,10 +83,16 @@
               <div *ngIf="imageUrl.errors.url">Please enter a valid URL</div>
             </div>
           </div>
-          <button class="btn btn-primary">Save</button>
-          <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
+
+          <button 
+          [disabled]="!f.valid"
+          class="btn btn-primary">Save</button>
+
+          <button 
+          type="button" (click)="delete()" class="btn btn-danger">Delete</button>
+
           <a class="btn btn-success" style="width:80px;margin-left:10px" [routerLink]="['/']">
-            Home
+            Back
         </a>
         </form>
       </div> <!-- end of 1st column -->
@@ -98,12 +104,4 @@
 
  
 
-          <!-- <div class="card" style="width: 20rem;">
-              <img class="card-img-top" [src]="compliance.imageUrl">
-              <div class="card-body">
-                <h6 class="card-title">{{ compliance.title }}</h6>
-                <p class="card-text">{{ compliance.revision }}</p>
-                <p class="card-text">{{ compliance.desc }}</p>
-                <p class="card-text">{{ compliance.datevalidity | date:'yyyy-MM-dd' }}</p>
-              </div>
-            </div>       -->
+          

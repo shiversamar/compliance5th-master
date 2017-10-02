@@ -1,0 +1,53 @@
+.input-group-addon {
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1;
+    color: #464545;
+    text-align: center;
+    background-color: #464545;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+bootstrap.min.css:11
+.input-group-addon, .input-group-btn {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+bootstrap.min.css:11
+.input-group-addon, .input-group-btn, .input-group .form-control {
+    display: table-cell;
+}
+<style>…</style>
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+<style>…</style>
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+bootstrap.min.css:11
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Inherited from div.input-group
+bootstrap.min.css:11
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+Inherited from body
+<style>…</style>
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+}

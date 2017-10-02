@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ComplianceService } from '../../services/auth/compliance/compliance.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/take';
+import { Compliance } from '../../models/compliance';
 
 @Component({
   selector: 'app-compliance-form',
@@ -26,7 +27,6 @@ export class ComplianceFormComponent implements OnInit {
     if (this.id) this.complianceService.get(this.id).take(1).subscribe(c => this.compliance = c);
   }
 
-
   save(compliance) {
     if (this.id) this.complianceService.update(this.id, compliance);
     else this.complianceService.create(compliance);
@@ -40,8 +40,6 @@ export class ComplianceFormComponent implements OnInit {
     this.complianceService.delete(this.id);
     this.router.navigate(['/admin/compliance']);
   }
-
-
 
   ngOnInit() {
   }

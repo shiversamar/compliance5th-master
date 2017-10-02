@@ -1,0 +1,44 @@
+<form #f="ngForm">
+  <div class="form-group">
+    <label for="">Email</label>
+    <input #email="ngModel" name="email" [(ngModel)]="sending.email" type="text" class="form-control" placeholder="Email Address" required>
+    <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+      <div *ngIf="email.errors.required">Email is required the userId .</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="">Contact Person </label>
+    <input #contactperson="ngModel" name="contactperson" [(ngModel)]="sending.contactperson" type="text" class="form-control" placeholder="Contact Person" required>
+    <div class="alert alert-danger" *ngIf="contactperson.touched && contactperson.invalid">
+      <div *ngIf="contactperson.errors.required">Contact Person is required.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="">Company Name</label>
+    <input #companyname="ngModel" name="companyname" [(ngModel)]="sending.companyname" type="text" class="form-control" placeholder="Company Name" required>
+    <div class="alert alert-danger" *ngIf="companyname.touched && companyname.invalid">
+      <div *ngIf="companyname.errors.required">Company Name is required.</div>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label for="">Address</label>
+    <input #city="ngModel" name="city" [(ngModel)]="sending.city" type="text" class="form-control" placeholder="Address" required>
+    <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+      <div *ngIf="city.errors.required">Address is required.</div>
+    </div>
+  </div>
+  <button 
+    [disabled]="!f.valid"
+    (click)="placeRequest()"
+    class="btn btn-primary">Send Request</button>
+
+    <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
+      Back
+  </a>
+
+
+</form>

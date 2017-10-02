@@ -1,4 +1,4 @@
-export interface Compliance {
+export class Compliance {
     $key: string;
     title: string;
     revision: string;

@@ -1,0 +1,92 @@
+<p>
+  upload-compliance works!
+</p>
+<div id="color"class="row">
+    <!-- 1st  -->
+         <div class="col-md-6">
+           <form #f="ngForm" (ngSubmit)="save(f.value)">
+   
+             <div class="form-group">
+               <label for="title">Title</label>
+               <input #title="ngModel" [(ngModel)]="compliance.title" name="title" id="title" type="text" class="form-control" required/>
+               <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+                 Title is required please..
+               </div>
+             </div>
+   
+             <!-- number ng2- validation from https://github.com/yuyang041060120/ng2-validation/blob/master/example/src/app.html -->
+             <div class="form-group">
+               <label for="revision">Revision</label>
+               <div class="input-group">
+                 <span class="input-group-addon">#</span>
+                 <input #revision="ngModel" [(ngModel)]="compliance.revision" name="revision" id="revision" type="string" class="form-control" required/>
+               </div>
+               <div class="alert alert-danger" *ngIf="revision.touched && revision.invalid">
+                 <div *ngIf="revision.errors.required"> Revision is required please..</div>
+                 <div *ngIf="revision.errors.min"> Revision should be 0 or higher.</div>
+               </div>
+             </div>
+   
+   
+             <div class="form-group">
+               <label for="datevalidity"> Date Validity</label>
+               <div class="input-group">
+                 <span class="input-group-addon">@</span>
+                 <input #datevalidity="ngModel" [(ngModel)]="compliance.datevalidity" name="datevalidity" id="datevalidity" type="text" class="form-control" required minDate="2017-08-30"/>
+               </div>
+               <div class="alert alert-danger" *ngIf="datevalidity.touched && datevalidity.invalid">
+                 <div *ngIf="datevalidity.errors.required"> Revision is required please..</div>
+                 <div *ngIf="datevalidity.errors.minDate"> Minimum Date valid is until 2017-08-31 please..</div>    
+               </div>
+             </div>
+   
+   
+             <div class="form-group">
+               <label for="desc">Description</label> 
+                 <div class="input-group">
+                   <input #desc="ngModel" [(ngModel)]="compliance.desc" name="desc" id="desc" type="text" class="form-control" required maxlength="40"/>
+                 </div>
+                     <div class="alert alert-danger" *ngIf="desc.touched && desc.invalid">
+                         <div *ngIf="desc.errors.required">Description is required please</div>
+                          <div *ngIf="desc.errors.maxlength">maxlength of 40 characters</div>
+                     </div>  
+              </div>
+   
+             <div class="form-group">
+               <label for="company">Company</label>
+               <select #company="ngModel" [(ngModel)]="compliance.company" name="company" id="company" class="form-control" required>
+               <option value=""></option>
+               <option *ngFor="let c of companies$ | async" [value]="c.$key">
+                 {{ c.name }}
+                 </option>        
+             </select>
+               <div class="alert alert-danger" *ngIf="company.touched && company.invalid">
+                 Company is required please...
+               </div>
+             </div>
+   
+             <div class="form-group">
+               <label for="imageUrl">Image URL</label>
+               <input #imageUrl="ngModel" [(ngModel)]="compliance.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url/>
+               <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
+                 <div *ngIf="imageUrl.errors.required">Image URL is required </div>
+                 <div *ngIf="imageUrl.errors.url">Please enter a valid URL</div>
+               </div>
+             </div>
+   
+             <button 
+             [disabled]="!f.valid"
+             class="btn btn-primary">Save</button>
+
+             <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
+             <a class="btn btn-success" style="width:80px;margin-left:10px" [routerLink]="['/']">
+               Back
+           </a>
+           </form>
+         </div> <!-- end of 1st column -->
+   
+         <div class="col-md-6">
+             <compliance-card [compliance]="compliance" [show-actions]="false"></compliance-card>
+         </div> <!-- end of 2nd column -->    
+    </div><!-- end of row-->
+   
