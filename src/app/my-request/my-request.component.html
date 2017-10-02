@@ -20,9 +20,12 @@
       <td>{{ request.sending.city }}</td>
       <td>{{ request.datePlaced | date}}</td>
       <td>
-        <a href="#">View</a>
+        <a href="#">
+          <i class="fa fa-eye" aria-hidden="true"></i>
+          View</a>
       </td>
       <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
+        <i class="fa fa-home" aria-hidden="true"></i>
         Back
       </a>
 

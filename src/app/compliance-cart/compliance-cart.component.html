@@ -51,10 +51,13 @@
       <a 
       *ngIf="cart.items.length"
       routerLink="/check-list"
-      class="btn btn-primary">Send Request</a>
+      class="btn btn-primary">
+      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+      Send Request</a>
 
       <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
-        Back
+        <i class="fa fa-home" aria-hidden="true">Back</i>
+
     </a>
     
 </ng-container>

@@ -13,7 +13,9 @@
          <button 
           *ngIf="complianceCart.getQuantity(compliance) === 0; else updateQuantity"
           (click)="addToCart()"
-          class="btn btn-secondary btn-block">Add to Compliance Request</button>
+          class="btn btn-secondary btn-block">
+          <i class="fa fa-plus-square" aria-hidden="true"></i>
+          Add to Compliance Request</button>
 
           <ng-template #updateQuantity>
              <compliance-quantity [compliance]="compliance" [compliance-cart]="complianceCart"></compliance-quantity>
@@ -22,12 +24,16 @@
 
          <button 
          [routerLink]="['/compliance-details']"
-         class="btn btn-success btn-block">View Details</button>
+         class="btn btn-success btn-block">
+         <i class="fa fa-eye" aria-hidden="true"></i>
+         View Details</button>
          
 
          <button 
          [routerLink]="['/upload-compliance']"
-         class="btn btn-primary btn-block">Upload Compliance</button>
+         class="btn btn-primary btn-block">
+         <i class="fa fa-upload" aria-hidden="true"></i>
+         Upload Compliance</button>
          
     </div>
 </div>
