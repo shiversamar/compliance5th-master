@@ -86,8 +86,9 @@ import { UploadComplianceComponent } from './upload-compliance/upload-compliance
 
       { path: 'check-list', component: CheckListComponent, canActivate: [AuthGuardService] },
 
+      { path: 'upload-compliance/new', component: UploadComplianceComponent, canActivate: [AuthGuardService] },
+      { path: 'upload-compliance/:id', component: UploadComplianceComponent, canActivate: [AuthGuardService] },
       { path: 'upload-compliance', component: UploadComplianceComponent, canActivate: [AuthGuardService] },
-      // { path: 'upload-compliance/:id', component: UploadComplianceComponent, canActivate: [AuthGuardService] },
 
 
       { path: 'submit-success/:id', component: SubmitSuccessComponent, canActivate: [AuthGuardService] },
@@ -100,7 +101,7 @@ import { UploadComplianceComponent } from './upload-compliance/upload-compliance
       {
         path: 'admin/compliance/:id',
         component: ComplianceFormComponent,
-        canActivate: [AuthGuardService, AdminAuthGuardService]
+        canActivate: [AuthGuardService]
       },
       {
         path: 'admin/compliance',

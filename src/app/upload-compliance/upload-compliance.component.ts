@@ -27,18 +27,18 @@ export class UploadComplianceComponent implements OnInit {
     if (this.id) this.complianceService.get(this.id).take(1).subscribe(c => this.compliance = c);
      }
   
-    save(compliance) {
+  save(compliance) {
       if (this.id) this.complianceService.update(this.id, compliance);
       else this.complianceService.create(compliance);
   
-      this.router.navigate(['/admin/compliance', '/upload-compliance']);  
+      this.router.navigate(['/']);  
     }
   
   delete() {
     if (!confirm('Are you sure you want to delete this product?')) return;
   
     this.complianceService.delete(this.id);
-    this.router.navigate(['/admin/compliance','/upload-compliance']);
+    this.router.navigate(['/']);
   }
 
   ngOnInit() {
