@@ -69,29 +69,10 @@
         <data-table-column
             [property]="'$key'">
             <ng-template #dataTableCell let-item="item">
-                <a [routerLink]="['/compliance-view/', item.$key]">Details</a>
+                <a [routerLink]="['/compliance-view/', item.$key]"><i class="fa fa-eye" aria-hidden="true"></i>Details</a>
                 
-                <!-- <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
-                    Back
-                </a> -->
             </ng-template>
         </data-table-column>
-        
-        
-        <!-- <data-table-column
-            [property]="'active'"
-            [header]="'Active'"
-            [width]="50"
-            [resizable]="true">
-            <ng-template #dataTableHeader let-item="item">
-                <span style="color: rgb(232, 0, 0)">Active</span>
-            </ng-template>
-            <ng-template #dataTableCell let-item="item">
-                <span style="color: grey">
-                <span class="glyphicon glyphicon-ok" *ngIf="item.active"></span>
-                <span class="glyphicon glyphicon-remove" *ngIf="!item.active"></span>
-                </span>
-            </ng-template>
-        </data-table-column>  -->
+           
     </data-table>
 </div>

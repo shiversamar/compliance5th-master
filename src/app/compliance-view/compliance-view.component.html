@@ -1,3 +1,52 @@
-<p>
-  compliance-view works!
-</p>
+
+<div class="panel-heading">
+ <h4 class="text-center">Compliance Details </h4>
+</div>
+
+
+<div class="panel-body">
+    <div class="row">
+        <div class="col-md-2">Company Name: </div>
+        <div class="col-md-10">{{ compliance.company }}</div>
+    </div>
+
+   <div class="row">
+       <div class="col-md-2">Title: </div>
+       <div class="col-md-10">{{ compliance.title }}</div>
+   </div>
+
+   <div class="row">
+       <div class="col-md-2">Revision </div>
+       <div class="col-md-10">{{ compliance.revision }}</div>
+   </div>
+
+   <div class="row">
+       <div class="col-md-2">Compliance Qty</div>
+       <div class="col-md-10">{{ compliance.qtylist }}</div>
+   </div>
+
+   <div class="row">
+       <div class="col-md-2"> Date Validity </div>
+       <div class="col-md-10">{{ compliance.datevalidity | date}}</div>
+   </div>
+   
+   <div class="row">
+       <div class="col-md-2">Description: </div>
+       <div class="col-md-10">{{ compliance.desc }}</div>
+   </div>
+   
+   <div class="row">
+      <div class="col-md-2">Compliance Image </div>
+      <div class="col-md-10">
+         <img *ngIf="compliance.imageUrl" class="card-img-top" style="max-width:35rem;" [src]="compliance.imageUrl"  alt="{{ compliance.title }}">
+       </div>  
+    </div>
+</div>
+
+<div class="panel-footer">
+   <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
+       Back
+   </a>
+</div>
+
+
