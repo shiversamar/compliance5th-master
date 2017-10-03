@@ -1,5 +1,5 @@
 <p>
-  compliance-details works!
+  compliance-details table works!
 </p>
 
 <p>
@@ -69,7 +69,7 @@
         <data-table-column
             [property]="'$key'">
             <ng-template #dataTableCell let-item="item">
-                <a [routerLink]="['/admin/compliance/', item.$key]">View</a>
+                <a [routerLink]="['/compliance-view/', item.$key]">Details</a>
                 
                 <!-- <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
                     Back

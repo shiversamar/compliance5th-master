@@ -73,6 +73,6 @@ export class ComplianceDetailsComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-  this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
+  // this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
  }
 }

@@ -40,6 +40,7 @@ import { ComplianceCartSummaryComponent } from './compliance-cart-summary/compli
 import { ComplianceDetailsComponent } from './compliance-details/compliance-details.component';
 import { SendingFormComponent } from './sending-form/sending-form.component';
 import { UploadComplianceComponent } from './upload-compliance/upload-compliance.component';
+import { ComplianceViewComponent } from './compliance-view/compliance-view.component';
 
 
 
@@ -63,7 +64,8 @@ import { UploadComplianceComponent } from './upload-compliance/upload-compliance
     ComplianceCartSummaryComponent,
     ComplianceDetailsComponent,
     SendingFormComponent,
-    UploadComplianceComponent
+    UploadComplianceComponent,
+    ComplianceViewComponent
 
   ],
 
@@ -82,15 +84,14 @@ import { UploadComplianceComponent } from './upload-compliance/upload-compliance
       { path: 'compliances/:id', component: CompliancesComponent },
       { path: 'compliance-cart', component: ComplianceCartComponent },
       { path: 'compliance-details', component: ComplianceDetailsComponent },
+      { path: 'compliance-view/:id', component: ComplianceViewComponent },
       { path: 'login', component: LoginComponent },
 
       { path: 'check-list', component: CheckListComponent, canActivate: [AuthGuardService] },
-
       { path: 'upload-compliance/new', component: UploadComplianceComponent, canActivate: [AuthGuardService] },
       { path: 'upload-compliance/:id', component: UploadComplianceComponent, canActivate: [AuthGuardService] },
       { path: 'upload-compliance', component: UploadComplianceComponent, canActivate: [AuthGuardService] },
-
-
+      
       { path: 'submit-success/:id', component: SubmitSuccessComponent, canActivate: [AuthGuardService] },
       { path: 'my-request', component: MyRequestComponent, canActivate: [AuthGuardService] },
       {
@@ -101,7 +102,7 @@ import { UploadComplianceComponent } from './upload-compliance/upload-compliance
       {
         path: 'admin/compliance/:id',
         component: ComplianceFormComponent,
-        canActivate: [AuthGuardService]
+        canActivate: [AuthGuardService,AdminAuthGuardService]
       },
       {
         path: 'admin/compliance',
