@@ -3,11 +3,31 @@
   <img *ngIf="compliance.imageUrl" class="card-img-top" [src]="compliance.imageUrl" alt="{{ compliance.title }}">
     <div class="card-body">
         <h5 class="card-title">{{ compliance.title }}</h5>
+
+        
+
             <p class="card-text">{{ compliance.revision }}</p>    
             <p class="card-text">{{ compliance.qtylist }}</p>  
             <p class="card-text">{{ compliance.datevalidity | date:'yyyy-MM-dd' }}</p> 
-            <p class="card-text">{{ compliance.desc }}</p>                   
+            <p class="card-text">{{ compliance.desc }}</p>     
+            
+            
     </div>
+        
+        <!-- <ng-container *ngIf="showActions; then thenTemplate; else elseTemplate"></ng-container>
+        <ng-template #thenTemplate>
+            
+            <p class="card-text">{{ compliance.revision }}</p>    
+            <p class="card-text">{{ compliance.qtylist }}</p>  
+            <p class="card-text">{{ compliance.datevalidity | date:'yyyy-MM-dd' }}</p> 
+            <p class="card-text">{{ compliance.desc }}</p>     
+            
+
+        </ng-template>
+        <ng-template #elseTemplate>     
+        </ng-template> -->
+        
+
 
     <div *ngIf="showActions && complianceCart" class="card-foooter"> 
          <button 

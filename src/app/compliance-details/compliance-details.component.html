@@ -1,13 +1,16 @@
-<p>
-  compliance-details table works!
-</p>
+<div style="margin: auto; max-width: 1000px;">
 
-<p>
-    <input 
-    #query 
-    (keyup)="filter(query.value)"
-    type="text" class="form-control" placeholder="Search...">
-</p>
+    <h1>
+        <i class="fa fa-search-plus" aria-hidden="true"></i>
+        <input 
+        #query 
+        (keyup)="filter(query.value)"
+        type="text" class="form-control" placeholder="Search...">
+   
+    </h1>
+
+</div>
+
 
 <div style="margin: auto; max-width: 1000px; margin-bottom: 50px;">
     <data-table id="persons-grid"
