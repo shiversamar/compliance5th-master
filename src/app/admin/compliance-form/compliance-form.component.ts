@@ -35,7 +35,7 @@ export class ComplianceFormComponent implements OnInit {
   }
 
   delete() {
-    if (!confirm('Are you sure you want to delete this product?')) return;
+    if (!confirm('Are you sure you want to delete this compliance?')) return;
 
     this.complianceService.delete(this.id);
     this.router.navigate(['/admin/compliance']);

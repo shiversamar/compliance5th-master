@@ -79,7 +79,6 @@ import { ComplianceViewComponent } from './compliance-view/compliance-view.compo
     AngularFireDatabaseModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      { path: 'home', component: HomeComponent },
       { path: '', component: CompliancesComponent },
       { path: 'compliances/:id', component: CompliancesComponent },
       { path: 'compliance-cart', component: ComplianceCartComponent },

@@ -25,4 +25,17 @@ export class RequestService {
       }
     });
   }
+
+
+  get(requestId) {
+    return this.db.object('/requests/' + requestId);
+  }
+
+  delete(requestId) {
+    return this.db.object('/requests/' + requestId).remove();
+  }
+
+
+
+
 }

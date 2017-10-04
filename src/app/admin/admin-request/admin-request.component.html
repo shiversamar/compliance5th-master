@@ -20,13 +20,16 @@
       <td>{{ request.sending.city }}</td>
       <td>{{ request.datePlaced | date}}</td>
       <td>
-        <a href="#">View</a>
-        <a href="#">Delete</a>
-      </td>
-
-      <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
-        Back
-    </a>
+        <a type="button" class="btn btn-sucess" [routerLink]="['/']">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+           </a>
+        
+            <button 
+            type="button" class="btn btn-danger">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+        
+    </td>
 
     </tr>
   </tbody> 

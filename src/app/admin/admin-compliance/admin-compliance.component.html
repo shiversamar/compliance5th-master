@@ -1,13 +1,17 @@
 <p>
-    <a routerLink="/admin/compliance/new" class="btn btn-primary">Create Compliance</a>
+    <a routerLink="/admin/compliance/new" class="btn btn-primary"
+    >
+    <i class="fa fa-plus-square" aria-hidden="true"></i>
+    Create Compliance</a>
 </p>
 
-<p>
+<h1>
     <input 
     #query 
     (keyup)="filter(query.value)"
     type="text" class="form-control" placeholder="Search...">
-</p>
+    
+</h1>
 
 <div style="margin: auto; max-width: 1000px; margin-bottom: 50px;">
     <data-table id="persons-grid"
@@ -53,7 +57,7 @@
 
         <data-table-column
         [property]="'qtylist'"
-        [header]="'Qty Required List'"
+        [header]="'Qty Required'"
         [sortable]="true"
         [resizable]="true">
          </data-table-column>
@@ -69,11 +73,12 @@
         <data-table-column
             [property]="'$key'">
             <ng-template #dataTableCell let-item="item">
-                <a [routerLink]="['/admin/compliance/', item.$key]">Edit</a>
+                <a [routerLink]="['/admin/compliance/', item.$key]">
+                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                    Edit</a>
                 
-                <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
-                    Back
-                </a>
+                <a class="btn btn-primary" [routerLink]="['/']">
+                    <i class="fa fa-home" aria-hidden="true"></i></a>
             </ng-template>
         </data-table-column>
         

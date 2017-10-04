@@ -1,6 +1,6 @@
-<p>
-  upload-compliance works!
-</p>
+<h3 class="text-center">
+  Upload New Compliance 
+</h3>
 <div id="color"class="row">
     <!-- 1st  -->
          <div class="col-md-6">
@@ -31,7 +31,7 @@
              <div class="form-group">
                <label for="datevalidity"> Date Validity</label>
                <div class="input-group">
-                 <span class="input-group-addon">@</span>
+                 <span class="input-group-addon">Go!</span>
                  <input #datevalidity="ngModel" [(ngModel)]="compliance.datevalidity" name="datevalidity" id="datevalidity" type="text" class="form-control" required minDate="2017-08-30"/>
                </div>
                <div class="alert alert-danger" *ngIf="datevalidity.touched && datevalidity.invalid">
@@ -44,14 +44,15 @@
              <div class="form-group">
                <label for="desc">Description</label> 
                  <div class="input-group">
-                   <input #desc="ngModel" [(ngModel)]="compliance.desc" name="desc" id="desc" type="text" class="form-control" required maxlength="40"/>
+                   <textarea #desc="ngModel" [(ngModel)]="compliance.desc" name="desc" id="desc" type="text" rows=4 class="form-control" required maxlength="100"></textarea>
                  </div>
                      <div class="alert alert-danger" *ngIf="desc.touched && desc.invalid">
                          <div *ngIf="desc.errors.required">Description is required please</div>
-                          <div *ngIf="desc.errors.maxlength">maxlength of 40 characters</div>
+                          <div *ngIf="desc.errors.maxlength">maxlength of 100 characters</div>
                      </div>  
               </div>
    
+
              <div class="form-group">
                <label for="company">Company</label>
                <select #company="ngModel" [(ngModel)]="compliance.company" name="company" id="company" class="form-control" required>
