@@ -3,13 +3,31 @@
       <div class="col-md-6">
         <form #f="ngForm" (ngSubmit)="save(f.value)">
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="title">Title</label>
             <input #title="ngModel" [(ngModel)]="compliance.title" name="title" id="title" type="text" class="form-control" required/>
             <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
               Title is required please..
             </div>
-          </div>
+          </div> -->
+
+
+          <div class="form-group">
+              <label for="title">Title</label>
+              <select #title="ngModel" [(ngModel)]="compliance.title" name="title" id="title" type="text" class="form-control" required>
+                <option
+                  *ngFor="let type of complianceTypes"
+                  [value] ="type">
+                  {{ type }}
+                </option>
+             </select>
+             
+              <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+                Title is required please..
+              </div>
+            </div>
+
+
 
           <!-- number ng2- validation from https://github.com/yuyang041060120/ng2-validation/blob/master/example/src/app.html -->
           <div class="form-group">
@@ -95,8 +113,8 @@
             type="button" (click)="delete()" class="btn btn-danger">
             Delete</button>
 
-            <a class="btn btn-success" style="width:80px;margin-left:10px" [routerLink]="['/']">
-              Back
+            <a class="btn btn-success" [routerLink]="['/']">
+             Cancel
             </a>
        
 

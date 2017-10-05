@@ -41,6 +41,8 @@ import { ComplianceDetailsComponent } from './compliance-details/compliance-deta
 import { SendingFormComponent } from './sending-form/sending-form.component';
 import { UploadComplianceComponent } from './upload-compliance/upload-compliance.component';
 import { ComplianceViewComponent } from './compliance-view/compliance-view.component';
+import { MyrequestViewComponent } from './myrequest-view/myrequest-view.component';
+
 
 
 
@@ -65,7 +67,9 @@ import { ComplianceViewComponent } from './compliance-view/compliance-view.compo
     ComplianceDetailsComponent,
     SendingFormComponent,
     UploadComplianceComponent,
-    ComplianceViewComponent
+    ComplianceViewComponent,
+    MyrequestViewComponent,
+    
 
   ],
 
@@ -90,9 +94,12 @@ import { ComplianceViewComponent } from './compliance-view/compliance-view.compo
       { path: 'upload-compliance/new', component: UploadComplianceComponent, canActivate: [AuthGuardService] },
       { path: 'upload-compliance/:id', component: UploadComplianceComponent, canActivate: [AuthGuardService] },
       { path: 'upload-compliance', component: UploadComplianceComponent, canActivate: [AuthGuardService] },
-      
+
       { path: 'submit-success/:id', component: SubmitSuccessComponent, canActivate: [AuthGuardService] },
       { path: 'my-request', component: MyRequestComponent, canActivate: [AuthGuardService] },
+      { path: 'myrequest-view', component: MyrequestViewComponent, canActivate: [AuthGuardService] },
+      
+
       {
         path: 'admin/compliance/new',
         component: ComplianceFormComponent,
