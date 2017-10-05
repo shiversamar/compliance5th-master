@@ -14,6 +14,19 @@ export class UploadComplianceComponent implements OnInit {
   compliance = {}; //black object for new component
   // compliance: Compliance;
   id;
+
+  complianceTypes: Array<string> = [
+    'ISO Certification',
+    'Letter of Intent',
+    'Certificate of Registration',
+    'Permit to Locate',
+    'Authorization Letter',
+    'Business Permit License',
+    'Application for Permit to Locate',
+    'Request for Certification',
+    'Material Safety Data Sheet'
+  ];
+
   companies$: FirebaseListObservable<any[]>;
 
   constructor(
@@ -24,14 +37,14 @@ export class UploadComplianceComponent implements OnInit {
     this.companies$ = companyService.getCompanies();
     
     this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id) this.complianceService.get(this.id).take(1).subscribe(c => this.compliance = c);
+    if (this.id) this.complianceService.get(this.id).take(1).subscribe(c => this.compliance = c );
      }
   
   save(compliance) {
       if (this.id) this.complianceService.update(this.id, compliance);
       else this.complianceService.create(compliance);
   
-      this.router.navigate(['/']);  
+      this.router.navigate(['/']);   
     }
   
   delete() {

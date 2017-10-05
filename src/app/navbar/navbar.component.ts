@@ -27,7 +27,7 @@ import { ComplianceCart } from '../models/compliance-cart';
     }
 
     logout() {
-      if (!confirm('Thanks for visiting this Compliance Tracker App and Are you sure you want Logout?')) return;
+      if (!confirm('Thanks for visiting this Compliance Tracker App and Are you sure you want to Logout?')) return;
   
       this.auth.logout();   
     }

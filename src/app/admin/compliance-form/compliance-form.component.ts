@@ -13,7 +13,7 @@ import { Compliance } from '../../models/compliance';
 
 export class ComplianceFormComponent implements OnInit {
   companies$;
-  compliance = { };
+  compliance = { }; //Empty object useful adding new compliance not just declared "compliance;" 
   id;
 
   constructor(

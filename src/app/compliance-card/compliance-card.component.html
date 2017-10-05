@@ -4,28 +4,50 @@
     <div class="card-body">
         <h5 class="card-title">{{ compliance.title }}</h5>
 
+        <div class="caption">
+           
+            <div *ngIf="!compliance.showDetails">
+                <p class="card-text">{{ compliance.revision }}</p>    
+                <p class="card-text">{{ compliance.qtylist }}</p>  
+                <p class="card-text">{{ compliance.datevalidity | date:'yyyy-MM-dd' }}</p> 
+                <p class="card-text">{{ compliance.desc }}</p>  
+            <hr>
+                <button
+                    class="btn btn-sm btn-success"
+                    *ngIf="!compliance.showDetails"
+                    (click)="compliance.showDetails = !compliance.showDetails">
+                    <i class="fa fa-eject" aria-hidden="true">Eject</i>
+
+                </button>
+            </div>
+
+            <!-- <div *ngIf="compliance.showDetails">
+                <div class="details">
+                        <p class="card-text">{{ compliance.revision }}</p>    
+                        <p class="card-text">{{ compliance.qtylist }}</p>  
+                        <p class="card-text">{{ compliance.datevalidity | date:'yyyy-MM-dd' }}</p> 
+                        <p class="card-text">{{ compliance.desc }}</p>  
         
 
-            <p class="card-text">{{ compliance.revision }}</p>    
-            <p class="card-text">{{ compliance.qtylist }}</p>  
-            <p class="card-text">{{ compliance.datevalidity | date:'yyyy-MM-dd' }}</p> 
-            <p class="card-text">{{ compliance.desc }}</p>     
-            
-            
+                        <button
+                        class="btn btn-sm btn-success"
+                        (click)="compliance.showDetails = !compliance.showDetails">
+                        <i class="fa fa-expand" aria-hidden="true">Close</i>
+                    </button>
+                </div>
+            </div> -->
+
+
+
+
+
+
+
+
+        </div>               
     </div>
         
-        <!-- <ng-container *ngIf="showActions; then thenTemplate; else elseTemplate"></ng-container>
-        <ng-template #thenTemplate>
-            
-            <p class="card-text">{{ compliance.revision }}</p>    
-            <p class="card-text">{{ compliance.qtylist }}</p>  
-            <p class="card-text">{{ compliance.datevalidity | date:'yyyy-MM-dd' }}</p> 
-            <p class="card-text">{{ compliance.desc }}</p>     
-            
-
-        </ng-template>
-        <ng-template #elseTemplate>     
-        </ng-template> -->
+        
         
 
 
@@ -46,7 +68,7 @@
          [routerLink]="['/compliance-details']"
          class="btn btn-success btn-block">
          <i class="fa fa-eye" aria-hidden="true"></i>
-         View Table Details</button>
+         View in Table format</button>
          
 
          <button 

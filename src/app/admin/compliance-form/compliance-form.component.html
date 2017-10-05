@@ -53,12 +53,12 @@
           <div class="form-group">
             <label for="desc">Description</label> 
               <div class="input-group">
-                <textarea #desc="ngModel" [(ngModel)]="compliance.desc" name="desc" id="desc" type="text" rows=4 class="form-control" required maxlength="100">
+                <textarea #desc="ngModel" [(ngModel)]="compliance.desc" name="desc" id="desc" type="text" rows=3 class="form-control" required maxlength="200">
                 </textarea>
               </div>
                   <div class="alert alert-danger" *ngIf="desc.touched && desc.invalid">
                       <div *ngIf="desc.errors.required">Description is required please</div>
-                       <div *ngIf="desc.errors.maxlength">maxlength of 100 characters</div>
+                       <div *ngIf="desc.errors.maxlength">maxlength of 200 characters</div>
                   </div>  
            </div>
 
@@ -79,7 +79,7 @@
 
           <div class="form-group">
             <label for="imageUrl">Image URL</label>
-            <input #imageUrl="ngModel" [(ngModel)]="compliance.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url/>
+            <input #imageUrl="ngModel" [(ngModel)]="compliance.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url>
             <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
               <div *ngIf="imageUrl.errors.required">Image URL is required </div>
               <div *ngIf="imageUrl.errors.url">Please enter a valid URL</div>
