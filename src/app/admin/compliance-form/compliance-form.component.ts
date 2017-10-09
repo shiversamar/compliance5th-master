@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/take';
 import { Compliance } from '../../models/compliance';
 
+
 @Component({
   selector: 'app-compliance-form',
   templateUrl: './compliance-form.component.html',
@@ -60,6 +61,11 @@ export class ComplianceFormComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) this.complianceService.get(this.id).take(1).subscribe(c => this.compliance = c);
   }
+
+  // save(compliance) {
+  //   console.log(compliance)
+  // }
+
 
   save(compliance) {
     if (this.id) this.complianceService.update(this.id, compliance);

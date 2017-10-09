@@ -4,6 +4,7 @@ import { CompanyService } from '../services/auth/company.service';
 import { ComplianceService } from '../services/auth/compliance/compliance.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Compliance } from '../models/compliance';
+import { ComplianceType } from '../models/compliance-type';
 
 @Component({
   selector: 'app-upload-compliance',
@@ -14,6 +15,8 @@ export class UploadComplianceComponent implements OnInit {
   compliance = {}; //black object for new component
   // compliance: Compliance;
   id;
+  
+  // compliancetype = {};
 
   complianceTypes: Array<string> = [
     'ISO Certification',
@@ -57,14 +60,17 @@ export class UploadComplianceComponent implements OnInit {
     private complianceService: ComplianceService ) { 
     this.companies$ = companyService.getCompanies();
     
-    this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id) this.complianceService.get(this.id).take(1).subscribe(c => this.compliance = c );
+    // this.id = this.route.snapshot.paramMap.get('id');
+    // if (this.id) this.complianceService.get(this.id).take(1).subscribe(c => this.compliance = c );
      }
   
   save(compliance) {
-      if (this.id) this.complianceService.update(this.id, compliance);
-      else this.complianceService.create(compliance);
-  
+      // if (this.id) this.complianceService.update(this.id, compliance);
+      // else this.complianceService.create(compliance);
+      this.complianceService.create(compliance);
+
+
+      // this.router.navigate(['/admin/compliance','/']);
       this.router.navigate(['/']);   
     }
   
@@ -73,6 +79,7 @@ export class UploadComplianceComponent implements OnInit {
   
     this.complianceService.delete(this.id);
     this.router.navigate(['/']);
+    // this.router.navigate(['/admin/compliance', '/']);
   }
 
   ngOnInit() {

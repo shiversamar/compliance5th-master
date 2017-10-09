@@ -49,10 +49,12 @@
          <data-table-column
             [property]="'datevalidity'"
             [header]="'Date Validity'"
-            [sortable]="true">
+            [sortable]="true"
+            [visible]="false">
             <ng-template #dataTableCell let-item="item">
                 <span>{{ item.datevalidity | date:'yyyy-MM-dd'}}</span>
             </ng-template>
+
         </data-table-column>
 
         <data-table-column

@@ -12,7 +12,6 @@ import { DataTableResource } from "angular-4-data-table/dist";
 })
 export class AdminComplianceComponent implements OnInit, OnDestroy {
   compliances: Compliance[];
- 
   subscription: Subscription;
   tableResource: DataTableResource<Compliance>;
   items: Compliance[] = [];
@@ -37,8 +36,9 @@ export class AdminComplianceComponent implements OnInit, OnDestroy {
 
   reloadItems(params){
     if (!this.tableResource) return;
+
     this.tableResource.query(params)
-        .then(items => this.items = items);
+       .then(items => this.items = items);
   }
 
 
@@ -65,7 +65,7 @@ export class AdminComplianceComponent implements OnInit, OnDestroy {
           alert('Double clicked: ' + rowEvent.row.item.company);
       }
   
-      rowTooltip(item) { return item.jobTitle; }
+      rowTooltip(item) { return item.datevalidity; }
 
   ngOnInit() {
   }

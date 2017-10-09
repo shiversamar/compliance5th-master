@@ -44,6 +44,20 @@
              </div>
    
    
+
+             <div class="form-group">
+              <label for="qtylist">Required Compliance</label>
+              <div class="input-group">
+                <span class="input-group-addon">#</span>
+                <input #qtylist="ngModel" [(ngModel)]="compliance.qtylist" name="qtylist" id="qtylist" type="number" class="form-control" required [min]="0"/>
+              </div>
+              <div class="alert alert-danger" *ngIf="qtylist.touched && qtylist.invalid">
+                <div *ngIf="qtylist.errors.required"> Required Compliance qty is required please..</div>
+                <div *ngIf="qtylist.errors.min"> Qty compliance should be 0 or higher.</div>
+              </div>
+            </div>
+
+
              <div class="form-group">
                <label for="datevalidity"> Date Validity</label>
                <div class="input-group">
@@ -60,11 +74,11 @@
              <div class="form-group">
                <label for="desc">Description</label> 
                  <div class="input-group">
-                   <textarea #desc="ngModel" [(ngModel)]="compliance.desc" name="desc" id="desc" type="text" rows=3 class="form-control" required maxlength="200"></textarea>
+                   <textarea #desc="ngModel" [(ngModel)]="compliance.desc" name="desc" id="desc" type="text" rows=3 class="form-control" required></textarea>
                  </div>
                      <div class="alert alert-danger" *ngIf="desc.touched && desc.invalid">
                          <div *ngIf="desc.errors.required">Description is required please</div>
-                          <div *ngIf="desc.errors.maxlength">maxlength of 200 characters</div>
+                          <!-- <div *ngIf="desc.errors.maxlength">maxlength of 200 characters</div> -->
                      </div>  
               </div>
    
@@ -91,6 +105,34 @@
                </div>
              </div>
    
+
+
+             <div *ngIf="currentUpload">
+              <div class="progress">
+                <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+              </div>
+              Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+            </div>
+                <label>
+                   <input type="file" (change)="detectFiles($event)">
+                </label>
+                <button
+                        [disabled]="!selectedFiles"
+                        (click)="uploadSingle()">
+                  Upload Single
+                </button>
+                <label>
+                   <input type="file" (change)="detectFiles($event)" multiple>
+                </label>
+                  <button
+                          [disabled]="!selectedFiles"
+                          (click)="uploadMulti()">
+                    Upload Multiple
+                  </button>
+
+
+
+
              <button 
              [disabled]="!f.valid"
              class="btn btn-primary">Save</button>

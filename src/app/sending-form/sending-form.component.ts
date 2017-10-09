@@ -14,7 +14,6 @@ import { RequestService } from '../services/auth/request.service';
 })
 export class SendingFormComponent implements OnInit, OnDestroy {
   @Input('cart') cart: ComplianceCart;
-  // sending: Sending;
   sending = {};
   userSubscription: Subscription;
   userId: string;
