@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
 import { RequestService } from '../services/auth/request.service';
+import { Request } from '../models/request';
 
 
 @Component({
@@ -17,11 +18,13 @@ export class SendingFormComponent implements OnInit, OnDestroy {
   sending = {};
   userSubscription: Subscription;
   userId: string;
-
+  
   constructor(
     private router: Router,
     private authService: AuthService,
-    private requestService: RequestService ) { }
+    private requestService: RequestService ) { 
+
+    }
 
   ngOnInit() {
     this.userSubscription = this.authService.user$.subscribe(
@@ -33,8 +36,8 @@ export class SendingFormComponent implements OnInit, OnDestroy {
   }
 
   async placeRequest() {
-    let request = new Request(this.userId, this.sending);
-    let result = await this.requestService.storeRequest(request);
+    let request = new Request(this.userId, this.sending, this.cart);
+    let result = await this.requestService.placeRequest(request);
     this.router.navigate(['/submit-success', result.key])
     }
 

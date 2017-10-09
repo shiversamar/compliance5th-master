@@ -7,7 +7,7 @@ export class RequestService {
 
   constructor( private db:AngularFireDatabase, private complianceCartService : ComplianceCartService ) { }
 
-  async storeRequest(request) {
+  async placeRequest(request) {
     let result = await this.db.list('/requests').push(request);
     this.complianceCartService.clearCart();
     return result;

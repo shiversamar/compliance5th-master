@@ -1,8 +1,10 @@
 import { ComplianceCart } from "./compliance-cart";
+import { Sending } from "./sending";
 
-export class Request {
+export class Request{
     datePlaced: number;
     items: any[];
+   
     
     constructor(public userId: string, public sending:any, complianceCart: ComplianceCart){
         this.datePlaced = new Date().getTime();
