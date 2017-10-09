@@ -2,29 +2,42 @@
   myrequest-view works!
 </p>
 
-<!-- <app-check-list></app-check-list> -->
 
-<!-- <app-compliance-cart></app-compliance-cart> -->
-<!-- <compliance-cart-summary></compliance-cart-summary> -->
+<ng-container *ngIf="cart$ | async as cart">
+  
 
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Compliance Image</th>
+          <th>Company Name</th>
+          <th>Compliance List</th>
+          <th>Revision</th>
+          <th>Date Validity </th>
+          <th>Description</th>
+         
+        </tr>
+      </thead>
 
-<!-- <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Compliance Summary</h4>
-      <p class="card-text">You have {{ cart.totalItemsCount }} items in your Compliance Request.</p>
-      <ul class="list-group list-group-flush">
-        <li *ngFor="let item of cart.items" class="list-group-item">
-            {{ item.quantity }} - {{ item.title }}
-            <div class="float-right">
-              {{ item.totalQtylist  }}
-            </div>
-        </li>
-        <li class="list-group-item font-weight-bold">
-            Total Balance
-            <div class="float-right">
-              {{ cart.totalQtylist }}
-            </div>
-        </li>
-      </ul>
-    </div>
-  </div> -->
+      <tbody>
+        <tr *ngFor="let item of cart.items">
+          <td>
+            <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail"></div>
+           </td>
+            <td>{{ item.company }}</td>
+            <td>{{ item.title }}</td>
+            <td>{{ item.revision }}</td>
+            <td>{{ item.datevalidity }}</td>
+            <td>{{ item.desc }}</td>
+
+        </tr>
+      </tbody>
+
+    </table>
+   
+        <a class="btn btn-primary" style="width:80px;margin-left:10px" [routerLink]="['/']">
+          <i class="fa fa-home" aria-hidden="true">Back</i>
+
+      </a>
+  
+</ng-container>
