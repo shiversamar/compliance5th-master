@@ -1,4 +1,8 @@
-# Compliance5th "ComplianceTrackerApp" was a code challenge from Source Intelligence this is just the foundation and not yet fully finished I was able to deployed it for demo and testing purposes you can live view at https://compliance5th.firebaseapp.com/
+# Compliance5th 
+
+
+This was a code challenge from Source Intelligence during my internship that customer and supplier view the application for their list compliances and requirements for applying for ISO certification. It's the same application - the views you see depends on whether you are a customer or supplier. If you are a customer, you would have sent requests  - if you are a supplier you would have received requests. I've  built it using  Angular, Npm,  Node.js and used firebase as a backend to live view the said App by visiting  https://compliance5th.firebaseapp.com/  and please be noted this is just the foundation with 75% its functionality and still under development I've hosted and deployed it in firebase for demo and CRUD testing.
+
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
